@@ -1,6 +1,9 @@
 schedules:
 - cron: "*/5 * * * *"
-
+  branches:
+    include:
+    - master
+    
 stages:
 - stage: 'Hosted_Ubuntu_1604'
   dependsOn: []
