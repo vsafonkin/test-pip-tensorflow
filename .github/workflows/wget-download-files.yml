@@ -23,7 +23,7 @@ jobs:
     
     - name: download packages
       run: |
-        pwsh ./download.ps.1
+        pwsh ./download.ps1
         
   macos:
     runs-on: macos-latest
@@ -40,4 +40,4 @@ jobs:
         
     - name: download packages
       run: |
-        pwsh ./download.ps.1
+        pwsh ./download.ps1
