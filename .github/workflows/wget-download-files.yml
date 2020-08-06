@@ -24,3 +24,4 @@ jobs:
     - name: download packages
       run: |
         pwsh ./download.ps1
+      if: ${{ always() }}

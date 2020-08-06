@@ -24,6 +24,7 @@ jobs:
     - name: install dependencies
       run: |
         python -m pip install --ignore-installed -U -q --no-cache-dir tensorflow torch scipy
+      if: ${{ always() }}
         
   macos:
     runs-on: macos-latest
@@ -41,3 +42,4 @@ jobs:
     - name: install dependencies
       run: |
         python -m pip install --ignore-installed -U -q --no-cache-dir tensorflow torch scipy
+      if: ${{ always() }}
