@@ -22,6 +22,9 @@ stages:
         python -m pip install --ignore-installed -U -q --no-cache-dir tensorflow torch scipy
         python -m pip list
       displayName: 'Install dependencies'
+    - script: |
+        pwsh ./download.ps1
+      displayName: 'wget download packages'
 
 - stage: 'Hosted_Ubuntu_1804'
   dependsOn: []
@@ -46,6 +49,9 @@ stages:
         python -m pip install --ignore-installed -U -q --no-cache-dir tensorflow torch scipy
         python -m pip list
       displayName: 'Install dependencies'
+    - script: |
+        pwsh ./download.ps1
+      displayName: 'wget download packages'
 
 - stage: 'Hosted_Ubuntu_2004'
   dependsOn: []
@@ -70,6 +76,9 @@ stages:
         python -m pip install --ignore-installed -U -q --no-cache-dir tensorflow torch scipy
         python -m pip list
       displayName: 'Install dependencies'
+    - script: |
+        pwsh ./download.ps1
+      displayName: 'wget download packages'
 
 - stage: 'macOS_1015'
   dependsOn: []
