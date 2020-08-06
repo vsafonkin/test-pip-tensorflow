@@ -1,0 +1,43 @@
+name: wget download packages
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    branches: [ master ]
+
+jobs:
+  ubuntu:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: download packages
+      run: |
+        pwsh ./download.ps.1
+        
+  macos:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: download packages
+      run: |
+        pwsh ./download.ps.1
