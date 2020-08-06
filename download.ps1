@@ -8,9 +8,9 @@ $links += "https://files.pythonhosted.org/packages/06/45/7578e531889bdd03353ba2a
 $links += "https://files.pythonhosted.org/packages/e5/96/0c370ed7fc96e281aa4e93356cba8663d4295c8aad685d67ed1991aeaaff/tensorflow-2.3.0-cp37-cp37m-macosx_10_11_x86_64.whl#sha256=0cfb0fbe875408cdbfc7677f12aa0b23656f3e6d8c5f568b3100450ec29262a7"
 
 foreach ($link in $links) {
+    Write-Host "Download from $link..."
     wget -O test.whl --tries=1 --quiet $link
     $sha = ((& sha256sum test.whl) -Split (" "))[0]
-    Write-Host "sha: $sha"
     if ($link -match $sha) {
         Remove-Item test.whl
         continue
