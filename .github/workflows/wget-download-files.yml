@@ -2,7 +2,7 @@ name: wget download packages
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * 1"
   push:
     branches: [ master ]
 
