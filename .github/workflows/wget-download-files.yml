@@ -1,6 +1,12 @@
 name: wget download packages
 
 on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'test'     
+        required: true
+        default: '1'
   schedule:
   - cron: " 0/5 * * * *"
   push:
