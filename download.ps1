@@ -9,7 +9,7 @@ $links += "https://files.pythonhosted.org/packages/e5/96/0c370ed7fc96e281aa4e933
 
 foreach ($link in $links) {
     Write-Host "Download from $link..."
-    wget -O test.whl --tries=1 --quiet $link
+    wget -O test.whl --tries=1 --verbose $link
     $sha = ((& sha256sum test.whl) -Split (" "))[0]
     if ($link -match $sha) {
         Remove-Item test.whl
@@ -18,4 +18,5 @@ foreach ($link in $links) {
         Write-Host "Error! got sha $sha, but it is not sha from link $($link.Split('sha256=')[1])"
         exit 1
     }
+    Write-Host "####################################"
 }
