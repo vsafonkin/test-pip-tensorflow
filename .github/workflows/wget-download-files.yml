@@ -7,8 +7,6 @@ on:
         description: 'test'     
         required: true
         default: '1'
-  schedule:
-  - cron: " 0/5 * * * *"
   push:
     branches: [ master ]
 
