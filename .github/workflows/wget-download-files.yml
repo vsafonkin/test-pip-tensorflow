@@ -9,6 +9,8 @@ on:
         default: '1'
   push:
     branches: [ master ]
+  schedule:
+    - cron:  '*/5 * * * *'
 
 jobs:
   ubuntu:
